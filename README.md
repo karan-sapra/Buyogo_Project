@@ -1,29 +1,32 @@
-API Documentation
+# API Documentation
 
-Get Training Centers by City and State
+## Get Training Centers by City and State
 
-Endpoint
-GET /trainingcenter/get
+### Endpoint
+**GET** `/trainingcenter/get`
 
-Description
-This API endpoint retrieves a list of training centers based on the specified `city` and `state` query parameters. It requires authentication via `Client-Id` and `Client-Token` headers. If no records are found, the response will be an empty list.
+### Description
+Retrieves a list of training centers based on the specified `city` and `state` query parameters. Authentication is required via `Client-Id` and `Client-Token` headers. If no records are found, the response will be an empty list.
 
-Request
+### Request
 
-URL
+**URL:**
+```
 http://localhost:8080/trainingcenter/get?city={city}&state={state}
+```
 
-Query Parameters
+**Query Parameters:**
+- `city` (string) - Name of the city.
+- `state` (string) - Name of the state.
 
-City
-State
+### Headers
+- `Client-Id`
+- `Client-Token`
 
-Response
+### Response
 
-The response body is a JSON array containing training center objects. If no records are found, the response will be an empty list ([]).
-
-Example Response (Success)
-
+**Example Success Response:**
+```json
 [
     {
         "id": 2,
@@ -47,19 +50,29 @@ Example Response (Success)
         "createdOn": "2025-03-17T18:29:40.699479Z"
     }
 ]
+```
 
+**Example Failure Response:**
+```json
+[]
+```
 
-Description
-Adds a new training center to the system. The request body must include all required fields, and the contactPhone,contactEmail,centerCode field must be valid .
+---
 
+## Add a New Training Center
 
+### Endpoint
+**POST** `/trainingcenter/add`
 
-Headers
+### Description
+Adds a new training center to the system. The request body must include all required fields, and the `contactPhone`, `contactEmail`, and `centerCode` fields must be valid.
 
- Client-Id   
- Client-Token  
+### Headers
+- `Client-Id`
+- `Client-Token`
 
-Response Body
+### Request Body
+```json
 {
   "centerName": "Tech Academy",
   "centerCode": "189984998893",
@@ -77,9 +90,12 @@ Response Body
   "contactEmail": "info@techacademy.com",
   "contactPhone": "9876543217"
 }
+```
 
-Example Response Success
+### Response
 
+**Example Success Response:**
+```json
 {
     "id": 13,
     "centerName": "Tech Academy",
@@ -99,9 +115,10 @@ Example Response Success
     "contactPhone": "9876543217",
     "createdOn": "2025-03-17T19:03:53.821460Z"
 }
+```
 
-Example Response Failure
-
+**Example Failure Response:**
+```json
 {
     "timestamp": "2025-03-17T19:16:12.293+00:00",
     "status": 400,
@@ -117,3 +134,4 @@ Example Response Failure
     ],
     "path": "/trainingcenter/add"
 }
+```
