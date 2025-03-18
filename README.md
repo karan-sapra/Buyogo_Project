@@ -20,8 +20,8 @@ http://localhost:8080/trainingcenter/get?city={city}&state={state}
 - `state` (string) - Name of the state.
 
 ### Headers
-- `Client-Id`
-- `Client-Token`
+- `Client-Id: akshay`
+- `Client-Token: akshay@123`
 
 ### Response
 
@@ -68,8 +68,8 @@ http://localhost:8080/trainingcenter/get?city={city}&state={state}
 Adds a new training center to the system. The request body must include all required fields, and the `contactPhone`, `contactEmail`, and `centerCode` fields must be valid.
 
 ### Headers
-- `Client-Id`
-- `Client-Token`
+- `Client-Id: akshay`
+- `Client-Token: akshay@123`
 
 ### Request Body
 ```json
